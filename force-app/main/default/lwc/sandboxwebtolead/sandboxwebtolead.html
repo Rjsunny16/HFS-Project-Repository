@@ -1,0 +1,42 @@
+<template>
+    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+        <input type=hidden name="oid" value="00D0w0000008ixr">
+        <input type=hidden name="retURL" value="https://m2techsqds-hfs.cs75.force.com/SMILimitedBikes/s/thank-you-page">
+        
+        <!--  ----------------------------------------------------------------------  -->
+        <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+        <!--  these lines if you wish to test in debug mode.                          -->
+        <!--  <input type="hidden" name="debug" value=1>                              -->
+        <!--  <input type="hidden" name="debugEmail"                                  -->
+        <!--  value="rochak.jain@marlabs.com">                                        -->
+        <!--  ----------------------------------------------------------------------  -->
+        <h3 >Register here for more information </h3><br/>
+        <label hidden="hidden" for="lead_source">Lead Source</label><select  style="display: none" id="lead_source" name="lead_source">
+            <option value="Website">Website</option>
+            </select><br>
+        <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" required/><br><br/>
+        
+        <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" required/><br><br/>
+        
+        <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" required/><br><br/>
+        
+        <label for="phone">Phone</label><input  id="phone"  name="phone" type="tel" pattern="[1-9]{1}[0-9]{9}" placeholder="1234567890" required/><br><br/>
+        
+        <label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" required/><br><br/>
+        
+        Product Interest: *<select  id="00N0w000005Iywy" name="00N0w000005Iywy" title="Product Interest" required><option value="">--None--</option><option value="Electric Vehicle">Electric Vehicle</option>
+        <option value="Fuel Vehicle">Fuel Vehicle</option>
+        </select><br/><br/>
+        
+         <label for="recordType">Location: </label><select  id="recordType" name="recordType" required><option value="">--None--</option>
+            <option value="0120w0000011roI">East</option>
+            <option value="0120w0000011q5i">North</option>
+            <option value="0120w0000011roD">South</option>
+            <option value="0120w0000011rEh">West</option>
+            </select><br><br>
+
+        <input type="submit" name="submit" class="btn">
+        
+        </form>
+</template>

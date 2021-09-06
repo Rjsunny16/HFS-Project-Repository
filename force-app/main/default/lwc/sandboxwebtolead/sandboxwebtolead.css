@@ -1,0 +1,50 @@
+label{
+            float: left;  
+            color: #141097;              
+            
+        }
+        label:after {
+            content:" *";
+            color: red;
+          }
+        h3{
+            font-family: 'Recursive', sans-serif;
+            font-weight: bold;
+            color: black;
+            margin-left: 105px;
+        }
+        input{
+            float:right;
+        }
+        textarea{
+            float:right;
+            padding:9px;
+        }
+        form{
+            
+            overflow:auto;
+            padding: 10px;
+            width: 100%;
+            height: 450px;
+            background-color: rgba(187, 176, 184, 0.616);
+            font-family: 'Numans', sans-serif;
+            color: #141097; 
+
+        }
+        
+        Select{
+            float: right;  
+        }
+        .btn:hover{
+        
+                color: black;
+                
+                width: 100px;
+                background-color: #bd296e36;
+            
+        }
+        .btn{
+            color: black;
+            background-color: white;
+            width: 100px;
+        }

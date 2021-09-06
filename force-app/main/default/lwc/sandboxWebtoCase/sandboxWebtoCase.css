@@ -1,0 +1,52 @@
+label{
+            float: left;  
+            color: #141097;              
+            
+        }
+        h3{
+            font-family: 'Recursive', sans-serif;
+            font-weight: bold;
+            color: black;
+            margin-left: 120px;
+        }
+        h1{
+            font-family: 'Recursive', sans-serif;
+            font-weight: bold;
+            color: black;
+            margin-left: 130px;
+        }
+        input{
+            float:right;
+        }
+        textarea{
+            float:right;
+            padding:9px;
+        }
+        form{
+            
+            overflow:auto;
+            padding: 10px;
+            width: 70%;
+            height: 100%;
+            background-color: rgba(116, 240, 203, 0.616);
+            font-family: 'Numans', sans-serif;
+            color: #141097; 
+
+        }
+        
+        Select{
+            float: right;  
+        }
+        .btn:hover{
+        
+                color: black;
+                
+                width: 100px;
+                background-color: #bd296e36;
+            
+        }
+        .btn{
+            color: black;
+            background-color: white;
+            width: 100px;
+        }
