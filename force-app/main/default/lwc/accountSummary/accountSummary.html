@@ -1,0 +1,71 @@
+<template>
+    <lightning-card title="Choose Account Name" icon-name="standard:account">
+    
+        <table>
+            <tr>
+                <td>
+                
+                    <div class="slds-m-around_medium">
+                        <select class="slds-select" onchange={contactFetch}>
+                        <option>Select Account</option>
+                            <template for:each ={acc} for:item="item">
+                                <option key={item.Id} value={item.Id}>{item.Name}</option>
+                            </template>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                            <p>Related Contacts</p>
+                            <template for:each ={con} for:item="item">
+                                <p key={item.id} >{item.FirstName}</p>
+                            </template>
+                        
+                    </div>
+                </td>
+            </tr>
+        
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <p>Related Opportunity</p>
+                            <template for:each ={opp} for:item="item">
+                                <table key={item.Id}>
+                                    <td>
+                                        {item.Name}
+                                    </td>
+                                    <td>
+                                        {item.StageName}
+                                    </td>
+                                </table>
+                            </template>
+                        
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <p>Related Case</p>
+                            <template for:each ={cs} for:item="item">
+                                <table key={item.Id}>
+                                    <td>
+                                        {item.CaseNumber}
+                                    </td>
+                                    <td>
+                                        {item.Status}
+                                    </td>
+                                </table>
+                            </template>
+                        
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </lightning-card>
+</template>
