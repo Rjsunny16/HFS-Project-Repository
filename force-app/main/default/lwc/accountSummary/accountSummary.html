@@ -15,14 +15,40 @@
                     </div>
                 </td>
             </tr>
+            <!-- <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                            <h3><b>Account Summary</b></h3>
+                            <template key={total}>
+                               {total}
+                            </template>
+                        
+                    </div>
+                </td>
+            </tr> -->
             <tr>
                 <td>
                     <div class="slds-m-around_medium">
-                            <p>Related Contacts</p>
-                            <template for:each ={con} for:item="item">
-                                <p key={item.id} >{item.FirstName}</p>
-                            </template>
-                        
+                            <h3><b>Related Contacts to this Account</b></h3>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={con} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.Email}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
                     </div>
                 </td>
             </tr>
@@ -31,18 +57,26 @@
                 <td>
                     <div class="slds-m-around_medium">
                         
-                            <p>Related Opportunity</p>
-                            <template for:each ={opp} for:item="item">
-                                <table key={item.Id}>
-                                    <td>
-                                        {item.Name}
-                                    </td>
-                                    <td>
-                                        {item.StageName}
-                                    </td>
-                                </table>
-                            </template>
-                        
+                            <h3><b>Related Opportunity to this Account</b></h3>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Opportunity Name</th>
+                                        <th>Stage</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={opp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.StageName}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
                     </div>
                 </td>
             </tr>
@@ -51,21 +85,31 @@
                 <td>
                     <div class="slds-m-around_medium">
                         
-                            <p>Related Case</p>
-                            <template for:each ={cs} for:item="item">
-                                <table key={item.Id}>
-                                    <td>
-                                        {item.CaseNumber}
-                                    </td>
-                                    <td>
-                                        {item.Status}
-                                    </td>
-                                </table>
-                            </template>
-                        
+                            <h3><b>Related Case to this Account</b></h3>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Case Number</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={cs} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.CaseNumber}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.Status}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
                     </div>
                 </td>
             </tr>
+            
         </table>
+        
     </lightning-card>
 </template>

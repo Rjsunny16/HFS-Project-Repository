@@ -1,53 +1,29 @@
-import { LightningElement, track, wire} from 'lwc';
+import { LightningElement, track} from 'lwc';
 import fetchAccount from '@salesforce/apex/AccountRelatedObj.fetchAccount';
 import fetchContact from '@salesforce/apex/AccountRelatedObj.getContacts';
 import fetchOpportunity from '@salesforce/apex/AccountRelatedObj.fetchOpportunity';
 import fetchCase from '@salesforce/apex/AccountRelatedObj.fetchCase';
+// import { getRecord, getFieldValue } from "lightning/uiRecordApi";
+// import Total_Opportunity from "@salesforce/schema/Account.Number_of_Opportunity__c";
 
-const columns = [   {
-                        label: 'First Name',
-                        fieldName: 'FirstName'
-                    },
-                    {
-                        label: 'Last Name',
-                        fieldName: 'LastName'
-                    },
-                    {
-                        label: 'Email',
-                        fieldName: 'Email',
-                        type: 'email'
-                    },
-                    {
-                        label: 'Phone',
-                        fieldName: 'phone',
-                        type: 'phone'
-                    }
 
-                ];
-
-const columnsOpp = [{
-                        label: 'Name',
-                        fieldName: 'Name'
-
-                    },
-                    {
-                        label: 'Stage Name',
-                        fieldName: 'StageName'
-                    }
-
-];
- 
-
+// const fields = [Total_Opportunity];
 export default class AccountSummary extends LightningElement {
-   
+    // @api
+    // recordId;
+
+    // // Wire the output of the out of the box method getRecord to the property account
+    // @wire(getRecord, {
+    //             recordId: "$recordId",
+    //             fields
+    //         })
+    // account;
     @track acc;
     @track con;
     message;
     msg;
     @track opp;
     @track cs;
-    @track columns = columns;
-    @track columnsOpp = columnsOpp;
     connectedCallback(){
                         fetchAccount()
                         .then(result => {
@@ -59,7 +35,9 @@ export default class AccountSummary extends LightningElement {
 
                         }
 
-
+    // get total() {
+    //         return getFieldValue(this.account.data, Total_Opportunity);
+    // }
     contactFetch(event){
                             this.message = event.target.value;
                             console.log('Contact Id-->'+this.message);

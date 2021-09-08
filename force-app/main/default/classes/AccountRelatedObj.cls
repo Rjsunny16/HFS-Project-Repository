@@ -5,10 +5,16 @@ public class AccountRelatedObj {
         List<Account> accList=[SELECT Id,Name FROM Account ];
         return accList;
     }
+    @auraEnabled(cacheable=true)
+    public static List<Opportunity> getOpportunities( String accountId)
+    {
+        List<Opportunity> opp1List=[SELECT Amount,AccountId FROM Opportunity WHERE StageName = 'Closed Won' AND AccountId=:accountId ];
+        return opp1List;
+    }
     @auraEnabled
     public static List<Contact> getContacts(String accountId)
     {
-        List<Contact> conList=[SELECT Id,FirstName,LastName, AccountId FROM Contact WHERE AccountId=:accountId ];
+        List<Contact> conList=[SELECT Id,FirstName,LastName,Name, Email, AccountId FROM Contact WHERE AccountId=:accountId ];
         return conList;
     }
     @auraEnabled
