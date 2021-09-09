@@ -13,7 +13,7 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 const arrFields = [TARGET_REVENUE];
 
 export default class AccountBusinessPlanning extends LightningElement{
-    @api accountId;
+    @track accountId;
     @track records;
     @track errorMsg;   
     // connectedCallback(){

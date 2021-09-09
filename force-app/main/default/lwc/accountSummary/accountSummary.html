@@ -80,7 +80,67 @@
                     </div>
                 </td>
             </tr>
-
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        <h3><b>No of opportunites Closed Won:</b></h3>
+                            <table >
+                                <template for:each ={closedwonofopp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <h3><b>No of opportunites Closed Lost:</b></h3>
+                            <table >
+                                <template for:each ={closedlostopp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <h3><b>Closed Won opportunites Amount:</b></h3>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Opp Name</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={amountClosedWonOpp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.Amount}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+            
             <tr>
                 <td>
                     <div class="slds-m-around_medium">

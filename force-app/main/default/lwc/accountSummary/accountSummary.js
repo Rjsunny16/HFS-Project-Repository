@@ -3,6 +3,12 @@ import fetchAccount from '@salesforce/apex/AccountRelatedObj.fetchAccount';
 import fetchContact from '@salesforce/apex/AccountRelatedObj.getContacts';
 import fetchOpportunity from '@salesforce/apex/AccountRelatedObj.fetchOpportunity';
 import fetchCase from '@salesforce/apex/AccountRelatedObj.fetchCase';
+import getClosedWonOpp from '@salesforce/apex/AccountRelatedObj.getClosedWonOpp';
+import getClosedLostOpp from '@salesforce/apex/AccountRelatedObj.getClosedLostOpp';
+import getAmountClosedWonOpp from '@salesforce/apex/AccountRelatedObj.getAmountClosedWonOpp';
+
+
+
 // import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 // import Total_Opportunity from "@salesforce/schema/Account.Number_of_Opportunity__c";
 
@@ -24,6 +30,9 @@ export default class AccountSummary extends LightningElement {
     msg;
     @track opp;
     @track cs;
+    @track closedwonofopp;
+    @track closedlostopp;
+    @track amountClosedWonOpp;
     connectedCallback(){
                         fetchAccount()
                         .then(result => {
@@ -80,5 +89,43 @@ export default class AccountSummary extends LightningElement {
                                             this.error = error;
 
                                             })
+                            this.msg1 = event.target.value;
+                            console.log('Opportunity Id-->'+this.msg1);
+                            getClosedWonOpp({accountId : this.msg1})
+                            .then(result => {
+                                              this.closedwonofopp = result;
+
+                                              console.log(JSON.stringify(result));
+                                              console.log("result3",this.closedwonofopp);
+                                            })
+                            .catch(error =>{
+                                            this.error = error;
+
+                                            })
+                            this.msg2 = event.target.value;
+                            console.log('Opportunity Id-->'+this.msg2);
+                            getClosedLostOpp({accountId : this.msg2})
+                            .then(result => {
+                                              this.closedlostopp = result;
+
+                                              console.log(JSON.stringify(result));
+                                              console.log("result4",this.closedlostopp);
+                                            })
+                            .catch(error =>{
+                                            this.error = error;
+
+                                            })
+                            this.msg = event.target.value;
+                            console.log('Opportunity Id-->'+this.msg);
+                            getAmountClosedWonOpp({accountId : this.msg})
+                            .then(result => {
+                                             this.amountClosedWonOpp = result;
+                                             console.log(JSON.stringify(result));
+                                              console.log("result",this.amountClosedWonOpp);
+                                              })
+                              .catch(error =>{
+                                              this.error = error;
+                
+                                             })                           
                         }
 }
