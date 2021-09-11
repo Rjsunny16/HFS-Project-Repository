@@ -31,6 +31,15 @@
                     <div class="slds-m-around_medium">
                             <h3><b>Related Contacts to this Account</b></h3>
                             <table >
+                                <template for:each ={cnt} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.cnt}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                            <table >
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -58,6 +67,15 @@
                     <div class="slds-m-around_medium">
                         
                             <h3><b>Related Opportunity to this Account</b></h3>
+                            <table >
+                                <template for:each ={cntopp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.cntopp}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
                             <table >
                                 <thead>
                                     <tr>
@@ -147,10 +165,19 @@
                         
                             <h3><b>Related Case to this Account</b></h3>
                             <table >
+                                <template for:each ={cntcs} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.cntcs}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                            <table >
                                 <thead>
                                     <tr>
                                         <th>Case Number</th>
-                                        <th>Email</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <template for:each ={cs} for:item="item">
@@ -165,9 +192,29 @@
                                     </tr>
                                 </template>
                             </table>
+                            
                     </div>
+                    
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <lightning-card title="Update Account Record">
+                        <div class="slds-m-around_medium">
+        
+                            <!-- To Update Record-->
+                            <lightning-textarea label="Enter Financial Year" data-field="Financial_Year__c" 
+                                class="slds-m-bottom_x-small"></lightning-textarea>
+                                <lightning-textarea label="Enter Full Year Target Revenue" data-field="Full_Year_Target_Revenue__c" 
+                                class="slds-m-bottom_x-small"></lightning-textarea>
+                                <lightning-textarea label="Enter Campaign Budget" data-field="Campaign_Budget__c" 
+                                class="slds-m-bottom_x-small"></lightning-textarea>
+                            <lightning-button variant="brand" label="Update Account" onclick={updateAccount} 
+                                class="slds-m-left_x-small"></lightning-button>
+                        </div>
+                    </lightning-card>
+                </td>
+            </tr>  
             
         </table>
         
