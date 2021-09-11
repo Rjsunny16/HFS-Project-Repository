@@ -1,4 +1,4 @@
-import { LightningElement, api, track} from 'lwc';
+import { LightningElement, wire,api, track} from 'lwc';
 import { updateRecord } from 'lightning/uiRecordApi';
 import fetchAccount from '@salesforce/apex/AccountRelatedObj.fetchAccount';
 import ID_FIELD from '@salesforce/schema/Account.Id';
@@ -10,12 +10,13 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 
 
-const arrFields = [TARGET_REVENUE];
+const arrFields = "";
 
 export default class AccountBusinessPlanning extends LightningElement{
     @track accountId;
     @track records;
-    @track errorMsg;   
+    @track errorMsg;  
+     
     // connectedCallback(){
     //     fetchAccount()
     //     .then(result => {
@@ -26,7 +27,7 @@ export default class AccountBusinessPlanning extends LightningElement{
     //                     })
 
     //     }
-    //@wire (fetchAccount, {accId:'$accountId'})
+    @api recordId;
     // handleChangeAction(event){
     //   this.accountId = event.detail;
     //   window.console.log('accountId ' + this.accountId);
