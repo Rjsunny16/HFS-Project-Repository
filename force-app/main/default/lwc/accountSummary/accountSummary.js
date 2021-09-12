@@ -34,29 +34,7 @@ export default class AccountSummary extends LightningElement {
     @track closedlostopp;
     @track amountClosedWonOpp;
 
-    updateAccount(){
-      const fields = {};
-      fields[ID_FIELD.fieldApiName] = this.msg;
-      fields[Financial_Year.fieldApiName] = this.template.querySelector("[data-field='Financial_Year__c']").value;
-      fields[TARGET_REVENUE.fieldApiName] = this.template.querySelector("[data-field='Full_Year_Target_Revenue__c']").value;
-      fields[Campaign_Budget.fieldApiName] = this.template.querySelector("[data-field='Campaign_Budget__c']").value;
-      console.log(fields);
-
-      const recordInput = { fields };
-      updateRecord(recordInput)
-      .then(() => {
-          this.dispatchEvent(
-              new ShowToastEvent({
-                  title: 'Success',
-                  message: 'Account Updated',
-                  variant: 'success'
-              })
-          );
-      })
-      .catch(error => {
-          console.log(error);
-      });
-    }
+   
 
     connectedCallback(){
                         fetchAccount()
@@ -202,4 +180,27 @@ export default class AccountSummary extends LightningElement {
                 
                                              })                           
                         }
+   updateAccount(){
+      const fields = {};
+      fields[ID_FIELD.fieldApiName] = this.msg;
+      fields[Financial_Year.fieldApiName] = this.template.querySelector("[data-field='Financial_Year__c']").value;
+      fields[TARGET_REVENUE.fieldApiName] = this.template.querySelector("[data-field='Full_Year_Target_Revenue__c']").value;
+      fields[Campaign_Budget.fieldApiName] = this.template.querySelector("[data-field='Campaign_Budget__c']").value;
+      console.log(fields);
+
+      const recordInput = { fields };
+      updateRecord(recordInput)
+      .then(() => {
+          this.dispatchEvent(
+              new ShowToastEvent({
+                  title: 'Success',
+                  message: 'Account Updated',
+                  variant: 'success'
+              })
+          );
+      })
+      .catch(error => {
+          console.log(error);
+      });
+    }
 }

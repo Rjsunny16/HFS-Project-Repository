@@ -41,18 +41,19 @@ public class AccountRelatedObj {
         List<AggregateResult> countop=[SELECT COUNT(Id) cntopp FROM Opportunity WHERE  AccountId=:accountId ];
         return countop;
     }
-    @auraEnabled
-    public static List<Case> fetchCase(String accountId)
-    {
-        List<Case> csList=[SELECT Id,CaseNumber,Status, AccountId FROM Case WHERE AccountId=:accountId ];
-        return csList;
-    } 
+   
     @auraEnabled
     public static List<AggregateResult> countCases(String accountId)
     {
         List<AggregateResult> countcs=[SELECT COUNT(Id) cntcs FROM Case WHERE  AccountId=:accountId ];
         return countcs;
     }
+    @auraEnabled
+    public static List<Case> fetchCase(String accountId)
+    {
+        List<Case> csList=[SELECT Id,CaseNumber,Status, AccountId FROM Case WHERE AccountId=:accountId ];
+        return csList;
+    } 
     @auraEnabled
     public static List<AggregateResult> getClosedWonOpp(String accountId)
     {
