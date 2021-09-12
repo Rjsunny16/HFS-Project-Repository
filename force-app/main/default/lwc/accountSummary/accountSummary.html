@@ -1,6 +1,5 @@
 <template>
     <lightning-card title="Choose Account Name" icon-name="standard:account">
-    
         <table>
             <tr>
                 <td>
@@ -136,6 +135,15 @@
                     <div class="slds-m-around_medium">
                         
                             <h3><b>Closed Won opportunites Amount:</b></h3>
+                            <table >
+                                <template for:each ={cntcwopp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.cntcwopp}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
                             <table >
                                 <thead>
                                     <tr>

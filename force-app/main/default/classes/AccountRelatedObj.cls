@@ -11,6 +11,12 @@ public class AccountRelatedObj {
         List<Opportunity> opp1List=[SELECT Amount,AccountId FROM Opportunity WHERE StageName = 'Closed Won' AND AccountId=:accountId ];
         return opp1List;
     }
+    @auraEnabled(cacheable=true)
+    public static List<AggregateResult>  countClosedWonOpp( String accountId)
+    {
+        List<AggregateResult>  countCwOpp=[SELECT COUNT(Id) cntcwopp FROM Opportunity WHERE StageName = 'Closed Won' AND AccountId=:accountId ];
+        return countCwOpp;
+    }
     @auraEnabled
     public static List<Contact> getContacts(String accountId)
     {

@@ -7,6 +7,7 @@ import getClosedWonOpp from '@salesforce/apex/AccountRelatedObj.getClosedWonOpp'
 import getClosedLostOpp from '@salesforce/apex/AccountRelatedObj.getClosedLostOpp';
 import getAmountClosedWonOpp from '@salesforce/apex/AccountRelatedObj.getAmountClosedWonOpp';
 import countContacts from '@salesforce/apex/AccountRelatedObj.countContacts';
+import countClosedWonOpp from '@salesforce/apex/AccountRelatedObj.countClosedWonOpp';
 import countCases from '@salesforce/apex/AccountRelatedObj.countCases';
 import countOpp from '@salesforce/apex/AccountRelatedObj.countOpp';
 import { updateRecord } from 'lightning/uiRecordApi';
@@ -21,6 +22,7 @@ export default class AccountSummary extends LightningElement {
     
     @track acc;
     @track con;
+    @track cntcwopp;
     @track message;
     @track msg;
     @track cntopp
@@ -116,6 +118,19 @@ export default class AccountSummary extends LightningElement {
 
                                               console.log(JSON.stringify(result));
                                               console.log("result2",this.cntopp);
+                                            })
+                            .catch(error =>{
+                                            this.error = error;
+
+                                            })
+                            this.msg = event.target.value;
+                            console.log('opp Id-->'+this.msg);
+                            countClosedWonOpp({accountId : this.msg})
+                            .then(result => {
+                                              this.cntcwopp = result;
+
+                                              console.log(JSON.stringify(result));
+                                              console.log("result",this.cntcwopp);
                                             })
                             .catch(error =>{
                                             this.error = error;
