@@ -60,6 +60,7 @@ public class AccountRelatedObj {
         return oppList1;
         //[SELECT COUNT(Id) Name, COUNT(StageName) From Opportunity where StageName='Closed Won' and accountId=:accountId];
     }
+    
     @auraEnabled
     public static List<AggregateResult> getClosedLostOpp(String accountId)
     {
