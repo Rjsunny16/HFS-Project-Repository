@@ -33,6 +33,7 @@ export default class AccountSummary extends LightningElement {
     @track closedwonofopp;
     @track closedlostopp;
     @track amountClosedWonOpp;
+
     updateAccount(){
       const fields = {};
       fields[ID_FIELD.fieldApiName] = this.msg;
@@ -56,6 +57,7 @@ export default class AccountSummary extends LightningElement {
           console.log(error);
       });
     }
+
     connectedCallback(){
                         fetchAccount()
                         .then(result => {
@@ -66,8 +68,7 @@ export default class AccountSummary extends LightningElement {
                                         })
 
                         }
-
-   
+    
     contactFetch(event){
                             this.message = event.target.value;
                             console.log('Contact Id-->'+this.message);
