@@ -17,7 +17,6 @@ import Financial_Year from '@salesforce/schema/Account.Financial_Year__c';
 import Campaign_Budget from '@salesforce/schema/Account.Campaign_Budget__c';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
-
 export default class AccountSummary extends LightningElement {
     
     @track acc;
@@ -47,9 +46,9 @@ export default class AccountSummary extends LightningElement {
 
                         }
     
-    contactFetch(event){
+    accountDetailFetch(event){
                             this.message = event.target.value;
-                            console.log('Contact Id-->'+this.message);
+                            console.log('Account Id-->'+this.message);
                             fetchContact({accountId : this.message})
 
                             .then(result => {

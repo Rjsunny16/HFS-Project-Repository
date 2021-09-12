@@ -4,7 +4,7 @@
             <tr>
                 <td>
                     <div class="slds-m-around_medium">
-                        <select class="slds-select" onchange={contactFetch}>
+                        <select class="slds-select" onchange={accountDetailFetch}>
                         <option>Select Account</option>
                             <template for:each ={acc} for:item="item">
                                 <option key={item.Id} value={item.Id}>{item.Name}</option>
