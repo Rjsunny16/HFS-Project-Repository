@@ -1,0 +1,230 @@
+<template>
+    <lightning-card title="Choose Account Name" icon-name="standard:account">
+        <table>
+            <tr>
+                <td>
+                
+                    <div class="slds-m-around_medium">
+                        <select class="slds-select" onchange={contactFetch}>
+                        <option>Select Account</option>
+                            <template for:each ={acc} for:item="item">
+                                <option key={item.Id} value={item.Id}>{item.Name}</option>
+                            </template>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                            <h3><b>Account Summary</b></h3>
+                            <template key={total}>
+                               {total}
+                            </template>
+                        
+                    </div>
+                </td>
+            </tr> -->
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                            <h3><b>Related Contacts to this Account</b></h3>
+                            <table >
+                                <template for:each ={cnt} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.cnt}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={con} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.Email}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+        
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <h3><b>Related Opportunity to this Account</b></h3>
+                            <table >
+                                <template for:each ={cntopp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.cntopp}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Opportunity Name</th>
+                                        <th>Stage</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={opp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.StageName}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        <h3><b>No of opportunites Closed Won:</b></h3>
+                            <table >
+                                <template for:each ={closedwonofopp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <h3><b>No of opportunites Closed Lost:</b></h3>
+                            <table >
+                                <template for:each ={closedlostopp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <h3><b>Closed Won opportunites Amount:</b></h3>
+                            <table >
+                                <template for:each ={cntcwopp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.cntcwopp}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Opp Name</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={amountClosedWonOpp} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.Amount}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="slds-m-around_medium">
+                        
+                            <h3><b>Related Case to this Account</b></h3>
+                            <table >
+                                <template for:each ={cntcs} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.cntcs}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th>Case Number</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <template for:each ={cs} for:item="item">
+                                    <tr key={item.Id}>
+                                        <td>
+                                            {item.CaseNumber}
+                                        </td>
+                                        
+                                        <td>
+                                            {item.Status}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                            
+                    </div>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <lightning-card title="Update Account Record">
+                        <div class="slds-m-around_medium">
+        
+                            <!-- To Update Record-->
+                            <lightning-textarea label="Enter Financial Year" data-field="Financial_Year__c" 
+                                class="slds-m-bottom_x-small"></lightning-textarea>
+                                <lightning-textarea label="Enter Full Year Target Revenue" data-field="Full_Year_Target_Revenue__c" 
+                                class="slds-m-bottom_x-small"></lightning-textarea>
+                                <lightning-textarea label="Enter Campaign Budget" data-field="Campaign_Budget__c" 
+                                class="slds-m-bottom_x-small"></lightning-textarea>
+                            <lightning-button variant="brand" label="Update Account" onclick={updateAccount} 
+                                class="slds-m-left_x-small"></lightning-button>
+                        </div>
+                    </lightning-card>
+                </td>
+            </tr>  
+            
+        </table>
+        
+    </lightning-card>
+</template>
