@@ -1,6 +1,6 @@
 @isTest
 class AccountRelatedObjTest {
-	 static testMethod void testAccountList (){
+	 static testMethod void testAccountList () {
      Account acnt = new Account(Name = 'Micrisoft', Phone ='8762348732');
      insert acnt;
      
