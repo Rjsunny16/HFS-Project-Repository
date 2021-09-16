@@ -195,12 +195,12 @@
                 <td>
                     <lightning-card title="Planning for next year Revenue">
                         <div class="slds-m-around_medium">
-                            <lightning-textarea label="Enter Financial Year" data-field="Financial_Year__c" 
-                                class="slds-m-bottom_x-small"></lightning-textarea>
-                                <lightning-textarea label="Enter Full Year Target Revenue" data-field="Full_Year_Target_Revenue__c" 
-                                class="slds-m-bottom_x-small"></lightning-textarea>
-                                <lightning-textarea label="Enter Campaign Budget" data-field="Campaign_Budget__c" 
-                                class="slds-m-bottom_x-small"></lightning-textarea>
+                            <lightning-input type="text" label="Enter Financial Year" data-field="Financial_Year__c" 
+                                class="slds-m-bottom_x-small"></lightning-input>
+                                <lightning-input type="number" label="Enter Full Year Target Revenue" data-field="Full_Year_Target_Revenue__c" 
+                                class="slds-m-bottom_x-small"></lightning-input>
+                                <lightning-input type="number" label="Enter Campaign Budget" data-field="Campaign_Budget__c" 
+                                class="slds-m-bottom_x-small"></lightning-input>
                             <lightning-button variant="brand" label="Update Account" onclick={updateAccount} 
                                 class="slds-m-left_x-small"></lightning-button>
                         </div>
