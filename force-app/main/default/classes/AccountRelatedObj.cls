@@ -73,5 +73,6 @@ public class AccountRelatedObj {
     {
         List<Opportunity> oppList3=[SELECT Id,Name,Amount,AccountId FROM Opportunity WHERE StageName='Closed Won' AND AccountId=:accountId ];
         return oppList3;
-    }       
+    }  
+    
 }

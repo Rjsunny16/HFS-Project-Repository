@@ -1,0 +1,90 @@
+<template>
+    <!-- lightning button for open window -->
+    <lightning-button variant="brand"
+    label="Create Board Certification"
+    title="Create Board Certification"
+    onclick={openModal}
+    class="slds-m-left_x-small">
+ </lightning-button>
+    
+    <template if:true={isModalOpen}>
+        
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create Board Certificate Record</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-card title="Create certification using LDS">
+                        <lightning-layout>
+                            <lightning-layout-item size="6">
+                                <!-- Displaying fields to get information. -->
+                                <lightning-input class="slds-p-around_medium" label="Name" name="CertificateName" 
+                                    onchange={nameChangedHandler}></lightning-input>
+                                <lightning-input class="slds-p-around_medium" label="Certificate ID" name="Certificate_ID__c" 
+                                    onchange={CertificateIdChangedHandler}></lightning-input>
+                                
+                                <br/>
+                                <lightning-button class="slds-m-left_x-small" label="Create" variant="brand" 
+                                    onclick={createCertificate}></lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </lightning-card>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Close</button>
+                    
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <template if:true={isfile}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">Submit your file</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                    <lightning-file-upload
+                        label="Attach receipt"
+                        name="fileUploader"
+                        accept={acceptedFormats}
+                        record-id={boardCertificationId}
+                        onuploadfinished={handleUploadFinished}
+                        multiple
+                    >
+                    </lightning-file-upload>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Close</button>
+                    
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    
+    
+ </template>

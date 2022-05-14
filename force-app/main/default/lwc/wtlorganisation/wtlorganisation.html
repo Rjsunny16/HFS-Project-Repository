@@ -1,0 +1,207 @@
+<template>
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"  method="POST">
+    
+    <input type=hidden id="recordType" name="recordType"  value="0125j000000MtjS">
+    <input type=hidden name="oid" value="00D5j000001wLKk">
+    <input type=hidden name="retURL" value="https://hc-tp-hoc--17d4af74e77-developer-edition.ap27.force.com/1/thank-you-page">
+   
+    <div class="row">
+        <div class="column">
+        
+    <label class="required" for="last_name">Organization name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" required/><br>
+    
+    <label class="required"  for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="email" required/><br>
+    <label class="required" for="phone">Phone</label><input  id="phone" maxlength="10" name="phone" size="10" type="Phone" required /><br>
+    <label class="required" for="Contact Person Name">Contact Person Name:</label><input  id="00N5j00000IzaDu" maxlength="255" name="00N5j00000IzaDu" size="20" type="text" /><br>
+
+    <label class="required" for="Contact Person Email">Contact Person Email:</label><input  id="00N5j00000IzaDz" maxlength="80" name="00N5j00000IzaDz" size="20" type="text" /><br>
+
+    <label class="required" for="Contact Person Phone">Contact Person Phone:</label><input  id="00N5j00000IzaE9" maxlength="40" name="00N5j00000IzaE9"  size="20" type="text" /><br>
+
+    <label class="required"  for="street">Street</label><textarea name="street" style="height: 60px;" required></textarea><br>
+    <label class="required" for="city">City</label><input  id="city" maxlength="40" name="city" size="20" type="text" required/><br>
+    <label class="required" for="state">State/Province</label><input  id="state" maxlength="20" name="state" size="20" type="text" required/><br>
+    <label class="required" for="zip">Zip</label><input  id="zip" maxlength="20" name="zip" size="5" type="text" required /><br>
+    <label class="required" for="country">Country</label><input  id="country" maxlength="40" name="country" size="20" type="text" required/><br>
+    
+  
+    </div>
+    <div class="column">
+        <label class="required"  for="Type">Practice:</label><select  id="00N5j00000FPWk9" name="00N5j00000FPWk9" title="Type"><option value={selectedvalue}>--None--</option>
+            <option value="Facility">Facility</option>
+            <option value="Group">Group</option>
+            </select><br> 
+        
+    <label class="required"  for="Practice Type">Practice Type:</label><select  id="00N5j00000Iza9x" name="00N5j00000Iza9x" title="Practice  type"><option value="">--None--</option><option value="Hospital">Hospital</option>
+    <option value="clinic">clinic</option>
+    <option value="Long term care">Long term care</option>
+    <option value="hospice care">hospice care</option>
+    <option value="Family">Family</option>
+    <option value="General">General</option>
+    <option value="Internal medicine">Internal medicine</option>
+    <option value="Other">Other</option>
+    </select><br>
+    <label for="Other Practice Type">Other Practice Type:</label><input  id="00N5j00000Izb5m" maxlength="255" name="00N5j00000Izb5m" size="20" type="text" /><br>
+    <label class="required"  for="Provider Type">Provider Type:</label><select  id="00N5j00000FPX4N" name="00N5j00000FPX4N" title="Provider Type" required><option value="">--None--</option><option value="ACU: Acupuncturist">ACU: Acupuncturist</option>
+                <option value="ADC: Alcohol/Drug Counselor">ADC: Alcohol/Drug Counselor</option>
+                <option value="AUD: Audiologist">AUD: Audiologist</option>
+                <option value="BT: Biofeedback Technician">BT: Biofeedback Technician</option>
+                <option value="CNS: Clinical Nurse Specialist">CNS: Clinical Nurse Specialist</option>
+                <option value="CP: Clinical Psychologist">CP: Clinical Psychologist</option>
+                <option value="CRNA: Certified Registered Nurse Anesthetist">CRNA: Certified Registered Nurse Anesthetist</option>
+                <option value="CSP: Christian Science Practitioner">CSP: Christian Science Practitioner</option>
+                <option value="CSW: Clinical Social Worker">CSW: Clinical Social Worker</option>
+                <option value="DC: Doctor of Chiropractic">DC: Doctor of Chiropractic</option>
+                <option value="DDS: Doctor of Dental Surgery">DDS: Doctor of Dental Surgery</option>
+                <option value="DMD: Doctor of Dental Medicine">DMD: Doctor of Dental Medicine</option>
+                <option value="DO: Osteopathic Doctor">DO: Osteopathic Doctor</option>
+                <option value="DPM: Doctor of Podiatric Medicine">DPM: Doctor of Podiatric Medicine</option>
+                <option value="DT: Dietician">DT: Dietician</option>
+                <option value="LN: Nutritionist">LN: Nutritionist</option>
+                <option value="LPN: Licensed Practical Nurse">LPN: Licensed Practical Nurse</option>
+                <option value="MD: Medical Doctor">MD: Medical Doctor</option>
+                <option value="MFT: Marriage/Family Therapist">MFT: Marriage/Family Therapist</option>
+                <option value="MT: Massage Therapist">MT: Massage Therapist</option>
+                <option value="MW: Midwife">MW: Midwife</option>
+                <option value="ND: Naturopath">ND: Naturopath</option>
+                <option value="NEU: Neuropsychologist">NEU: Neuropsychologist</option>
+                <option value="NMW: Nurse Midwife">NMW: Nurse Midwife</option>
+                <option value="NP: Nurse Practitioner">NP: Nurse Practitioner</option>
+                <option value="OD: Optometrist">OD: Optometrist</option>
+                <option value="OPT: Optician">OPT: Optician</option>
+                <option value="OT: Occupational Therapist">OT: Occupational Therapist</option>
+                <option value="PHA: Pharmacist">PHA: Pharmacist</option>
+                <option value="PT: Physical Therapist">PT: Physical Therapist</option>
+                <option value="RT: Respiratory Therapist">RT: Respiratory Therapist</option>
+                <option value="SLP: Speech Pathologist">SLP: Speech Pathologist</option>
+                </select><br>
+                  
+    <label  for="Speciality">Speciality:</label><select  id="00N5j000008oMqb" name="00N5j000008oMqb" title="Speciality"><option value="">--None--</option>
+        <option value="Addiction Medicine">Addiction Medicine</option>
+        <option value="Allergy-Immunology">Allergy-Immunology</option>
+        <option value="All Other Suppliers">All Other Suppliers</option>
+        <option value="Ambulance Service Provider">Ambulance Service Provider</option>
+        <option value="Ambulatory Surgical Center">Ambulatory Surgical Center</option>
+        <option value="Anesthesiologist Assistant">Anesthesiologist Assistant</option>
+        <option value="Anesthesiology">Anesthesiology</option>
+        <option value="Audiologist">Audiologist</option>
+        <option value="Cardiac Surgery">Cardiac Surgery</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Center&quot;">Center&quot;</option>
+        <option value="Certified Clinical Nurse Specialist">Certified Clinical Nurse Specialist</option>
+        <option value="Certified Nurse Midwife">Certified Nurse Midwife</option>
+        <option value="Certified Registered Nurse Assistant (CRNA)">Certified Registered Nurse Assistant (CRNA)</option>
+        <option value="Chiropractic">Chiropractic</option>
+        <option value="Clinical Laboratory">Clinical Laboratory</option>
+        <option value="Clinical Psychologist">Clinical Psychologist</option>
+        <option value="Colorectal Surgery (formerly Proctology)">Colorectal Surgery (formerly Proctology)</option>
+        <option value="Critical Care (Intensivists)">Critical Care (Intensivists)</option>
+        <option value="Department Store">Department Store</option>
+        <option value="Dermatology">Dermatology</option>
+        <option value="Diagnostic Radiology">Diagnostic Radiology</option>
+        <option value="Emergency Medicine">Emergency Medicine</option>
+        <option value="Endocrinology">Endocrinology</option>
+        <option value="Family Practice">Family Practice</option>
+        <option value="Gastroenterology">Gastroenterology</option>
+        <option value="General Practice">General Practice</option>
+        <option value="General Surgery">General Surgery</option>
+        <option value="Geriatric Medicine">Geriatric Medicine</option>
+        <option value="GI">GI</option>
+        <option value="Grocery Store">Grocery Store</option>
+        <option value="Gynecological/Oncology">Gynecological/Oncology</option>
+        <option value="Hand Surgery">Hand Surgery</option>
+        <option value="Hematology">Hematology</option>
+        <option value="Hematology/Oncology">Hematology/Oncology</option>
+        <option value="Home Health Agency">Home Health Agency</option>
+        <option value="Hospital">Hospital</option>
+        <option value="Independent Diagnostic Testing Facility">Independent Diagnostic Testing Facility</option>
+        <option value="Individual Certified Orthotist">Individual Certified Orthotist</option>
+        <option value="Individual Certified Prosthetist">Individual Certified Prosthetist</option>
+        <option value="Individual Certified Prosthetist-Orthotist">Individual Certified Prosthetist-Orthotist</option>
+        <option value="Infectious Disease">Infectious Disease</option>
+        <option value="Intermediate Care Nursing Facility">Intermediate Care Nursing Facility</option>
+        <option value="Internal Medicine">Internal Medicine</option>
+        <option value="Interventional Pain Management">Interventional Pain Management</option>
+        <option value="Interventional Radiology">Interventional Radiology</option>
+        <option value="Licensed Clinical Social Worker">Licensed Clinical Social Worker</option>
+        <option value="Mammography Screening">Mammography Screening</option>
+        <option value="Mass Immunization Roster Billers">Mass Immunization Roster Billers</option>
+        <option value="Maxillofacial Surgery">Maxillofacial Surgery</option>
+        <option value="Medical Oncology">Medical Oncology</option>
+        <option value="Medical Supply Company with Orthotist">Medical Supply Company with Orthotist</option>
+        <option value="Medical Supply Company with Orthotist-Prosthetist">Medical Supply Company with Orthotist-Prosthetist</option>
+        <option value="Medical Supply Company with Pharmacist">Medical Supply Company with Pharmacist</option>
+        <option value="Medical Supply Company with Prosthetist">Medical Supply Company with Prosthetist</option>
+        <option value="Medical Supply Company with Respiratory Therapist">Medical Supply Company with Respiratory Therapist</option>
+        <option value="Multi-specialty Clinic or Group Practice/single specialty">Multi-specialty Clinic or Group Practice/single specialty</option>
+        <option value="Nephrology">Nephrology</option>
+        <option value="Neurology">Neurology</option>
+        <option value="Neuropsychiatry">Neuropsychiatry</option>
+        <option value="Neurosurgery">Neurosurgery</option>
+        <option value="Nuclear Medicine">Nuclear Medicine</option>
+        <option value="Nurse Practitioner">Nurse Practitioner</option>
+        <option value="Obstetrics Gynecology">Obstetrics Gynecology</option>
+        <option value="Occupational Therapist">Occupational Therapist</option>
+        <option value="Ophthalmology">Ophthalmology</option>
+        <option value="Optician">Optician</option>
+        <option value="Optometry">Optometry</option>
+        <option value="Oral Surgery (dental only)">Oral Surgery (dental only)</option>
+        <option value="Orthopedic Surgery">Orthopedic Surgery</option>
+        <option value="Osteopathic Manipulative Therapy (OMM)">Osteopathic Manipulative Therapy (OMM)</option>
+        <option value="Other Medical Supply Company">Other Medical Supply Company</option>
+        <option value="Other Nursing Facility">Other Nursing Facility</option>
+        <option value="Otolaryngology">Otolaryngology</option>
+        <option value="Pain Management">Pain Management</option>
+        <option value="Pathology">Pathology</option>
+        <option value="Pediatric Medicine">Pediatric Medicine</option>
+        <option value="Peripheral Vascular Disease">Peripheral Vascular Disease</option>
+        <option value="Pharmacy">Pharmacy</option>
+        <option value="Physical Medicine and Rehabilitation">Physical Medicine and Rehabilitation</option>
+        <option value="Physical Therapist">Physical Therapist</option>
+        <option value="Physician Assistant">Physician Assistant</option>
+        <option value="Plastic and Reconstructive Surgery">Plastic and Reconstructive Surgery</option>
+        <option value="Podiatry">Podiatry</option>
+        <option value="Portable X-Ray Supplier">Portable X-Ray Supplier</option>
+        <option value="Preventive Medicine">Preventive Medicine</option>
+        <option value="Psychiatry">Psychiatry</option>
+        <option value="Psychologist">Psychologist</option>
+        <option value="Public Health or Welfare Agency">Public Health or Welfare Agency</option>
+        <option value="Pulmonary Disease">Pulmonary Disease</option>
+        <option value="Radiation Oncology">Radiation Oncology</option>
+        <option value="Radiation Therapy Center">Radiation Therapy Center</option>
+        <option value="Registered Dietitian/Nutrition Professional">Registered Dietitian/Nutrition Professional</option>
+        <option value="Rheumatology">Rheumatology</option>
+        <option value="Skilled Nursing Facility">Skilled Nursing Facility</option>
+        <option value="Slide Preparation Facilities">Slide Preparation Facilities</option>
+        <option value="Surgical Oncology">Surgical Oncology</option>
+        <option value="Thoracic Surgery">Thoracic Surgery</option>
+        <option value="Unknown Physician Specialty">Unknown Physician Specialty</option>
+        <option value="Unknown Supplier/Provider Specialty">Unknown Supplier/Provider Specialty</option>
+        <option value="Urology">Urology</option>
+        <option value="Vascular Surgery">Vascular Surgery</option>
+        <option value="Voluntary Health or Charitable Agency">Voluntary Health or Charitable Agency</option>
+        </select><br>
+    <label class="required" for="Tax Id">Tax Id:</label><input  id="00N5j000008oci2" name="00N5j000008oci2" size="9" type="text"   placeholder="123456789" title="Must be 9 Number" required/><br>
+    <label for="National Provider Identifier">National Provider Identifier:</label><input  id="00N5j000008oMsI" name="00N5j000008oMsI" size="10" type="text"   placeholder="1234567890" title="Must be 10 Number" /><br>
+    <label for="Provider License State">Provider License State:</label><input  id="00N5j00000FPX5V" maxlength="2" name="00N5j00000FPX5V" size="2" type="text" placeholder="CY" title="Must be 2 upper Character" /><br>
+    <label  for="Licensure">Provider License Number</label><input  id="00N5j000008ostu" maxlength="50" name="00N5j000008ostu" size="50" type="text"  placeholder="123456789" title="Must be Number" /><br>
+    <label  for="Organization_ID (EIN)">Organization_ID (EIN):</label><input  id="00N5j00000FPX5k" maxlength="5" name="00N5j00000FPX5k" size="5" type="text" placeholder="12345" title="Must be 5 Number"/><br>
+        
+        
+    <label  for="Provider DEA">Provider DEA:</label><input  id="00N5j00000FPegX" maxlength="9" name="00N5j00000FPegX" size="9" type="text" placeholder="AA3456789" title="Must be 9 Number"/><br>
+        
+    
+    <label  for="CAQH Id">CAQH Id:</label><input  id="00N5j000008p4La" maxlength="8" name="00N5j000008p4La" size="8" type="text"  placeholder="12345678" title="Must be 8 Number" />
+    
+    
+    </div>
+    </div>
+    <center><button type="submit" name="submit" >SUBMIT</button></center>
+    
+    
+    
+    
+    </form>
+    
+</template>
+

@@ -1,35 +1,35 @@
 @isTest
 class AccountRelatedObjTest {
 	 static testMethod void testAccountList () {
-     Account acnt = new Account(Name = 'Micrisoft', Phone ='8762348732');
-     insert acnt;
-     
-     Opportunity opp = new Opportunity(Name = 'Rochak-Electric Vehicle', AccountId = acnt.Id,
-                               CloseDate = Date.today().addMonths(1), StageName = 'New');
-     insert opp;
-     
-     Contact cont = new Contact(FirstName='Sitesh', LastName = 'Jha', Phone ='8762348732',AccountId = acnt.Id);
-     insert cont;
-     
-     Case cs = new Case(Status = 'New', Origin = 'Email', AccountId = acnt.Id);
-     insert cs;
- 
-       AccountRelatedObj.fetchAccount();
-       AccountRelatedObj.fetchOpportunity( acnt.Id );
-       AccountRelatedObj.getContacts( acnt.Id );
-       AccountRelatedObj.fetchCase( acnt.Id );
-       AccountRelatedObj.countOpp( acnt.Id );
-       AccountRelatedObj.countClosedWonOpp( acnt.Id );
-       AccountRelatedObj.getOpportunities( acnt.Id );
-       AccountRelatedObj.countContacts( acnt.Id );
-       AccountRelatedObj.countCases( acnt.Id );
-       AccountRelatedObj.getClosedWonOpp( acnt.Id );
-       AccountRelatedObj.getClosedLostOpp( acnt.Id );
-       AccountRelatedObj.getAmountClosedWonOpp( acnt.Id );
-       
+        Account acnt = new Account(Name = 'Micrisoft', Phone ='8762348732');
+        insert acnt;
+        
+        Opportunity opp = new Opportunity(Name = 'Rochak-Electric Vehicle', AccountId = acnt.Id,
+                                CloseDate = Date.today().addMonths(1), StageName = 'New');
+        insert opp;
+        
+        Contact cont = new Contact(FirstName='Sitesh', LastName = 'Jha', Phone ='8762348732',AccountId = acnt.Id);
+        insert cont;
+        
+        Case cs = new Case(Status = 'New', Origin = 'Email', AccountId = acnt.Id);
+        insert cs;
+    
+        AccountRelatedObj.fetchAccount();
+        AccountRelatedObj.fetchOpportunity( acnt.Id );
+        AccountRelatedObj.getContacts( acnt.Id );
+        AccountRelatedObj.fetchCase( acnt.Id );
+        AccountRelatedObj.countOpp( acnt.Id );
+        AccountRelatedObj.countClosedWonOpp( acnt.Id );
+        AccountRelatedObj.getOpportunities( acnt.Id );
+        AccountRelatedObj.countContacts( acnt.Id );
+        AccountRelatedObj.countCases( acnt.Id );
+        AccountRelatedObj.getClosedWonOpp( acnt.Id );
+        AccountRelatedObj.getClosedLostOpp( acnt.Id );
+        AccountRelatedObj.getAmountClosedWonOpp( acnt.Id );
+        
     }
     @isTest(seeAllData=true)
-        static  void validateTriggerPriceBook() {
+    static  void validateTriggerPriceBook() {
         Account ac = new Account();
         ac.Name='Marlabs';
         insert ac;
