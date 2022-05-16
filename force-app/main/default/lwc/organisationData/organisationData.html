@@ -1,21 +1,62 @@
-<template >   
-                
-    <lightning-datatable data={data} columns={columns} key-field="Id">
-    </lightning-datatable>
-<!--
-    <template for:each={Account} for:item="acc">
-        <p key={acc.Id}>{acc.Name}</p>
-        <p key={acc.Id}>{acc.Id}</p>
-        <p key={acc.Id}>{acc.BillingStreet}</p>
-        <p key={acc.Id}>{acc.BillingState }</p>
-    </template>
+<template>
+<template if:true={accObj.data}>
+    <lightning-datatable key-field="Id" 
+    data={accObj.data} 
+    columns={columns} 
+    onrowaction={navigateToPerAcc}
+    hide-checkbox-column 
+    show-row-number-column>
+   </lightning-datatable>
+</template> 
+<template if:true={con}>
+    <div>
+        <h4><b>The provider listing & information</b> </h4>
+    </div>
+    <div>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Name">Name</div>
+                </th>  
+                <th class="" scope="col">
+                <div class="slds-truncate" title="Street">Street</div>
+                </th>
+                <th class="" scope="col">
+                <div class="slds-truncate" title="State">State</div>
+                </th>
+                <th class="" scope="col">
+                <div class="slds-truncate" title="City">City</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                <template if:true={con}>
+                    <template for:each={con} for:item="cont" for:index="index">
+                        <tr class="slds-hint-parent" key={cont.Id}>
+                            <td data-label="Name">
+                                <div class="slds-truncate" title="Name">{cont.Name}</div>
+                            </td>
+                            <td data-label="Street">
+                                <div class="slds-truncate" title="Street">{cont.BillingStreet}</div>
+                            </td>
+                            <td data-label="State">
+                                <div class="slds-truncate" title="State">{cont.BillingState}</div>
+                            </td>
+                            <td data-label="City">
+                                <div class="slds-truncate" title="City">{cont.City}</div>
+                            </td>
+                        </tr>
+                    </template>
+                </template>
+            </tbody>
+        </table>
+    </div>
+</template>
 
-    <template for:each={policy.Life_Insurances__r} for:item="lifeIns">
-        <p key={lifeIns.Id}>{lifeIns.Name}</p>
-        <p key={lifeIns.Id}>{lifeIns.Premium_Type__c}</p>
-        <p key={lifeIns.Id}>{lifeIns.Premium_Amount__c}</p>
-        <p key={lifeIns.Id}>{lifeIns.Due_Date__c }</p>
-    </template>            
-    -->
-    </template> 
+
+<!-- <lightning-card title="Employee Project Details">
+    <lightning-datatable data={projects__c} columns={columns} key-field="Id">
+    </lightning-datatable>
+</lightning-card> -->
 </template>

@@ -1,0 +1,17 @@
+<template>
+     <div class="slds-m-around_medium"> 
+        <lightning-input type = "search" value={searchKey} onchange={handleKeywordChange}>
+        </lightning-input>
+    </div> 
+
+    <template if:true={accObj.data}>
+        <lightning-datatable key-field="Id" 
+        data={accObj.data} 
+        columns={columns} 
+        onsave={saveHandleAction}
+        draft-values={fldsItemValues} 
+        hide-checkbox-column 
+        show-row-number-column>
+       </lightning-datatable>
+    </template>        
+</template>

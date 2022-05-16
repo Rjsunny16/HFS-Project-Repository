@@ -1,0 +1,14 @@
+#content { 
+    overflow:auto; 
+    background: gray; 
+  } 
+  
+  #left, #right { 
+    width: 40%; 
+    margin:5px; 
+    padding: 1em; 
+    background: white; 
+  } 
+  
+  #left  { float:left;  }
+  #right { float:right; } 

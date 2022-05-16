@@ -1,16 +1,21 @@
-import { LightningElement,api, track } from 'lwc';
+import { LightningElement,api, track,wire } from 'lwc';
 
 import findLocation from '@salesforce/apex/FindRelatedAccounts.findLocation';
+import findPersonAcc from '@salesforce/apex/FindRelatedAccounts.findPersonAcc';
 
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-
+//import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+const actions = [
+    { label: 'View Providers', name: 'show_details' },
+];
 export default class SearchAllPolicies extends LightningElement {
 
-    @track columns = [{
-        label: 'Id',
-        fieldName: 'Id'
-        
-    },
+    @track columns = [
+        {
+            type: 'action',
+            typeAttributes: {
+                rowActions: actions,
+            }
+        },
     {
         label: 'Name',
         fieldName: 'Name'
@@ -21,55 +26,40 @@ export default class SearchAllPolicies extends LightningElement {
         fieldName: 'BillingStreet'
     },
     {
+        label: 'City',
+        fieldName: 'BillingCity'
+    },
+    {
         label: 'State',
         fieldName: 'BillingState'
     }
 
 ];
-
-
-@track data;
-@track error;
-@track searchValue ='';
-
-    searchKeyword(event) {
-    this.searchValue = event.target.value;
-    console.log(this.searchValue);
+@track con;
+@track accObj;
+@api recordId;
+message;
+@track record;
+@track Account;
+@wire(  findLocation, {recordId: '$recordId'}) 
+cons(result) {
+    this.accObj = result;
+    console.log("result",this.accObj);
+    if (result.error) {
+        this.accObj = undefined;
+    }
 }
+navigateToPerAcc(event){
+    this.record = event.detail.row;
+    console.log("recordId",this.record.Id);
+    findPersonAcc({recordId : this.record.Id})
+    .then(result => {
+        this.con = result;
+    })
+    .catch(error =>{
+    this.error = error;
 
-handleSearchKeyword(){
-    if(this.searchedValue !== '') {
-    getPoliciesList({
-        searchKey: this.searchValue
-            })
-            .then(result=> {
-                this.data = result;
-                console.log(this.data);
-            })
-            .catch(error=> {
-                //this.error = error;
-            
-                const event = new ShowToastEvent({
-                    title: 'Error',
-                    variant :'error',
-                    message: error.body.message,
-                });
-                this.dispatchEvent(event);
-                console.log(data); 
-                //reset the data var with null
-                this.data = null;
-            });
-        
-        }//end of if
-        
-        else {
-            const event = new ShowToastEvent({
-                variant: 'error',
-                message: 'Search text missing..',
-            });
-            this.dispatchEvent(event);  
-        }
+        })
+  }
 
-        }                                          
-             
 }

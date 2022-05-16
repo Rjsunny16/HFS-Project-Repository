@@ -1,0 +1,21 @@
+<template>
+    <div class="slds-m-around_medium" >
+       <lightning-card title="Provider's Connection within Organization"> 
+        <lightning-input type = "search" value={searchKey} onchange={handleKeywordChange}>
+        </lightning-input>
+        <template if:true={hpsObj.data}>
+            <lightning-datatable key-field="Id" 
+            data={hpsObj.data} 
+            columns={columns} 
+            onsave={saveHandleAction}
+            draft-values={fldsItemValues} 
+            hide-checkbox-column 
+            show-row-number-column>
+           </lightning-datatable>
+        </template>   
+       </lightning-card>  
+       
+   </div> 
+
+       
+</template>
