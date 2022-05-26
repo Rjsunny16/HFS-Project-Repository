@@ -1,0 +1,91 @@
+<template>
+    
+        <lightning-card title="Organization Provider List">
+            <table>
+                <thead>
+                    <tr>
+                        
+                        <td scope="col"
+                        style="width: 20px">
+                            <lightning-input type = "search" value={searchKey} onchange={handleKeywordChange} placeholder="Type Organization Provider Name Or City...">
+                            </lightning-input>
+                        </td>
+                        <td scope="col"
+                        style="width: 80px">                
+                        </td>
+                    </tr>
+                </thead>
+            </table> 
+         
+         <template if:true={accObj.data}>
+         <br>
+            <lightning-datatable key-field="Id" 
+             data={accObj.data} 
+             columns={columns} 
+             onrowaction={navigateToPerAcc}
+            hide-checkbox-column 
+            show-row-number-column>
+            </lightning-datatable>
+         </template>   
+        </lightning-card>  
+        <template if:true={con}>
+            <lightning-card title="The provider listing and information" >
+            <div>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>  
+                        <th class="" scope="col">
+                        <div class="slds-truncate" title="NPI">NPI ID</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="StatusNPI">NPI Status</div>
+                            </th>
+                        <th class="" scope="col">
+                        <div class="slds-truncate" title="Speciality">Speciality</div>
+                        </th>
+                        <th class="" scope="col">
+                        <div class="slds-truncate" title="Progtram">Program</div>
+                        </th>
+                        <!-- <th class="" scope="col">
+                            <div class="slds-truncate" title="View">View</div>
+                        </th> -->
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <template if:true={con}>
+                            <template for:each={con} for:item="cont" for:index="index">
+                                <tr class="slds-hint-parent" key={cont.Id}>
+                                    <td data-label="Name">
+                                        <div class="slds-truncate" title="Name">{cont.Name}</div>
+                                    </td>
+                                    <td data-label="NPI Id">
+                                        <div class="slds-truncate" title="Npi">{cont.NPI_Id__c}</div>
+                                    </td>
+                                    <td data-label="Verified Npi">
+                                        <div class="slds-truncate"  title="StatusNpi">{cont.NPI_Status__c}</div>
+                                    </td>
+                                    <td data-label="Speciality">
+                                        <div class="slds-truncate" title="Speciality">{cont.Speciality__c}</div>
+                                    </td>
+                                    <td data-label="Program">
+                                        <div class="slds-truncate" title="Program">{cont.Program__c}</div>
+                                    </td>
+                                    <!-- <td>
+                                        <lightning-card>
+                                            <lightning-button label="View " onclick={navigateToViewContactPage}></lightning-button>
+                                        </lightning-card>
+                                    </td> -->
+                                </tr>
+                            </template>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+        </template>
+        
+    
+</template>

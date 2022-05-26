@@ -1,5 +1,7 @@
-<template>
+<template>  
+    
 <template if:true={accObj.data}>
+    <lightning-card title="Location Details">
     <lightning-datatable key-field="Id" 
     data={accObj.data} 
     columns={columns} 
@@ -7,11 +9,10 @@
     hide-checkbox-column 
     show-row-number-column>
    </lightning-datatable>
+</lightning-card>
 </template> 
 <template if:true={con}>
-    <div>
-        <h4><b>The provider listing & information</b> </h4>
-    </div>
+    <lightning-card title="The provider listing and information" >
     <div>
         <table class="slds-table slds-table_cell-buffer slds-table_bordered">
             <thead>
@@ -20,14 +21,20 @@
                     <div class="slds-truncate" title="Name">Name</div>
                 </th>  
                 <th class="" scope="col">
-                <div class="slds-truncate" title="Street">Street</div>
+                <div class="slds-truncate" title="NPI">NPI ID</div>
                 </th>
                 <th class="" scope="col">
-                <div class="slds-truncate" title="State">State</div>
+                    <div class="slds-truncate" title="StatusNPI">NPI Status</div>
+                    </th>
+                <th class="" scope="col">
+                <div class="slds-truncate" title="Speciality">Speciality</div>
                 </th>
                 <th class="" scope="col">
-                <div class="slds-truncate" title="City">City</div>
+                <div class="slds-truncate" title="Progtram">Program</div>
                 </th>
+                <!-- <th class="" scope="col">
+                    <div class="slds-truncate" title="View">View</div>
+                </th> -->
             </tr>
             </thead>
             <tbody>
@@ -37,21 +44,30 @@
                             <td data-label="Name">
                                 <div class="slds-truncate" title="Name">{cont.Name}</div>
                             </td>
-                            <td data-label="Street">
-                                <div class="slds-truncate" title="Street">{cont.BillingStreet}</div>
+                            <td data-label="NPI Id">
+                                <div class="slds-truncate" title="Npi">{cont.NPI_Id__c}</div>
                             </td>
-                            <td data-label="State">
-                                <div class="slds-truncate" title="State">{cont.BillingState}</div>
+                            <td data-label="Verified Npi">
+                                <div class="slds-truncate"  title="StatusNpi">{cont.NPI_Status__c}</div>
                             </td>
-                            <td data-label="City">
-                                <div class="slds-truncate" title="City">{cont.City}</div>
+                            <td data-label="Speciality">
+                                <div class="slds-truncate" title="Speciality">{cont.Speciality__c}</div>
                             </td>
+                            <td data-label="Program">
+                                <div class="slds-truncate" title="Program">{cont.Program__c}</div>
+                            </td>
+                            <!-- <td>
+                                <lightning-card>
+                                    <lightning-button label="View " onclick={navigateToViewContactPage}></lightning-button>
+                                </lightning-card>
+                            </td> -->
                         </tr>
                     </template>
                 </template>
             </tbody>
         </table>
     </div>
+</lightning-card>
 </template>
 
 

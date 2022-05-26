@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Providers Details">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col" style="text-align: center; padding-top: 10px;">
+                <lightning-card title="Please download the provider template here">
+                <span><button><a href="https://marlabs152-dev-ed.my.salesforce.com/sfc/p/5j000001wLKk/a/5j0000021sVX/U0.uCQkHKT_DxTym6RzL1Ucyh.jlYs_4uZ10_woL01U" target="_blank">Sample File</a></button>
+                </span>
+            </lightning-card>
+              </div>
+              <div class="slds-col" >
+                <lightning-card title="Please upload the completed provider file here (.csv format only)">
+                <span><lightning-file-upload
+                    name="fileUploader"
+                    accept={acceptedFormats}
+                    record-id={recordId}
+                    onuploadfinished={handleUploadFinished}
+                    multiple>
+            </lightning-file-upload></span>
+        </lightning-card>
+              </div>
+              
+            
+            </div>
+        
+       
+    </lightning-card>
+</template>

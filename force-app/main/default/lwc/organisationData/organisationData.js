@@ -1,5 +1,5 @@
 import { LightningElement,api, track,wire } from 'lwc';
-
+import { NavigationMixin } from 'lightning/navigation';
 import findLocation from '@salesforce/apex/FindRelatedAccounts.findLocation';
 import findPersonAcc from '@salesforce/apex/FindRelatedAccounts.findPersonAcc';
 
@@ -19,6 +19,26 @@ export default class SearchAllPolicies extends LightningElement {
     {
         label: 'Name',
         fieldName: 'Name'
+        
+    },
+    {
+        label: 'Tax Id',
+        fieldName: 'HealthCloudGA__TaxId__c'
+        
+    },
+    {
+        label: 'TaxId Status',
+        fieldName: 'Tax_Id_Status__c'
+        
+    },
+    {
+        label: 'License Id',
+        fieldName: 'Business_License_Id__c'
+        
+    },
+    {
+        label: 'LicenseId Status',
+        fieldName: 'License_Id_Status__c'
         
     },
     {
@@ -61,5 +81,6 @@ navigateToPerAcc(event){
 
         })
   }
+  
 
 }
